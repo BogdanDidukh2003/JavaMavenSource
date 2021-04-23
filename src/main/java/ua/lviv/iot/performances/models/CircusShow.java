@@ -13,13 +13,12 @@ import java.util.ArrayList;
 @FieldDefaults(makeFinal = false, level = AccessLevel.PRIVATE)
 public final class CircusShow extends Performance {
 
-    ArrayList<String> animals;
+    @NonNull ArrayList<String> animals;
 
-    ArrayList<String> acrobatsNames;
+    @NonNull ArrayList<String> acrobatsNames;
 
-    public CircusShow(@NonNull final String name, @NonNull final int musiciansNumber,
-                      @NonNull final int avgTicketPrice, @NonNull final ArrayList<String> animals,
-                      @NonNull final ArrayList<String> acrobatsNames) {
+    public CircusShow(final String name, final int musiciansNumber, final int avgTicketPrice,
+                      final ArrayList<String> animals, final ArrayList<String> acrobatsNames) {
         super(name, musiciansNumber, avgTicketPrice);
         this.animals = animals;
         this.acrobatsNames = acrobatsNames;

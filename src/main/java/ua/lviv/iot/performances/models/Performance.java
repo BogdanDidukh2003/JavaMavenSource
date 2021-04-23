@@ -1,9 +1,6 @@
 package ua.lviv.iot.performances.models;
 
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import lombok.experimental.FieldDefaults;
 import lombok.experimental.SuperBuilder;
 
@@ -15,10 +12,10 @@ import lombok.experimental.SuperBuilder;
 @FieldDefaults(makeFinal = false, level = AccessLevel.PROTECTED)
 public abstract class Performance {
 
-    String name;
+    @NonNull String name;
 
-    int musiciansNumber;
+    @NonNull int musiciansNumber;
 
-    int  avgTicketPrice;
+    @NonNull int  avgTicketPrice;
 
 }

@@ -13,13 +13,12 @@ import java.util.ArrayList;
 @FieldDefaults(makeFinal = false, level = AccessLevel.PRIVATE)
 public final class SymphonyOrchestra extends Performance {
 
-    String soloistName;
+    @NonNull String soloistName;
 
-    ArrayList<Instrument> instruments;
+    @NonNull ArrayList<Instrument> instruments;
 
-    public SymphonyOrchestra(@NonNull final String name, @NonNull final int musiciansNumber,
-                             @NonNull final int avgTicketPrice, @NonNull final String soloistName,
-                             @NonNull final ArrayList<Instrument> instruments) {
+    public SymphonyOrchestra(final String name, final int musiciansNumber, final int avgTicketPrice,
+                             final String soloistName, final ArrayList<Instrument> instruments) {
         super(name, musiciansNumber, avgTicketPrice);
         this.soloistName = soloistName;
         this.instruments = instruments;

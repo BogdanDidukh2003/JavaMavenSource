@@ -12,12 +12,12 @@ import lombok.experimental.FieldDefaults;
 @FieldDefaults(makeFinal = false, level = AccessLevel.PRIVATE)
 public final class Disco extends Performance {
 
-    Color discoBallColor;
+    @NonNull Color discoBallColor;
 
-    String musicGenre;
+    @NonNull String musicGenre;
 
-    public Disco(@NonNull final String name, @NonNull final int musiciansNumber, @NonNull final int avgTicketPrice,
-                 @NonNull final Color discoBallColor, @NonNull final String musicGenre) {
+    public Disco(final String name, final int musiciansNumber, final int avgTicketPrice,
+                 final Color discoBallColor, final String musicGenre) {
         super(name, musiciansNumber, avgTicketPrice);
         this.discoBallColor = discoBallColor;
         this.musicGenre = musicGenre;

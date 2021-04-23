@@ -13,9 +13,9 @@ import java.util.ArrayList;
 @FieldDefaults(makeFinal = false, level = AccessLevel.PRIVATE)
 public final class ConcertHallManager {
 
-    ArrayList<Performance> performances;
+    @NonNull ArrayList<Performance> performances;
 
-    public ConcertHallManager(@NonNull final ArrayList<Performance> performances) {
+    public ConcertHallManager(final ArrayList<Performance> performances) {
         this.performances = performances;
     }
 
