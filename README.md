@@ -1,10 +1,11 @@
 # JavaMavenSource
 ## Task
 Write code for Lab 2
-- Create a class "Teacher", which contains fields:
--- name and surname
--- number of years of publication
--- nickname among students
+
+- Concert hall. Implement a hierarchy of performances that can take place in a concert hall (for example, a circus show, a symphony orchestra concert, etc.). Search for performances in which musicians take part, and display the result sorted by the number of musicians involved
+Implement the ability to sort performances by the average ticket price
+The implementation of sorting should provide the ability to sort both in descending and ascending order	
+- Draw a UML class diagram https://drive.google.com/file/d/1zwNO2BukcorZsMPMBSKEVqpbNnwBQmEa/view?usp=sharing
 - Use java code convention
 - CLasses must be distributed in packages
 - Work with console must be minimal
