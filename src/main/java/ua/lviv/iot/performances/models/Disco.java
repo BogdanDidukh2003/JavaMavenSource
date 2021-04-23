@@ -1,8 +1,10 @@
 package ua.lviv.iot.performances.models;
 
-
-import lombok.*;
+import lombok.AccessLevel;
+import lombok.Data;
+import lombok.ToString;
 import lombok.experimental.FieldDefaults;
+
 
 @Data
 @ToString(callSuper = true)

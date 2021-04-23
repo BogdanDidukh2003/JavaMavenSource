@@ -1,11 +1,9 @@
 package ua.lviv.iot.performances.models;
 
-
 import lombok.AccessLevel;
 import lombok.Data;
 import lombok.ToString;
 import lombok.experimental.FieldDefaults;
-
 import java.util.ArrayList;
 
 

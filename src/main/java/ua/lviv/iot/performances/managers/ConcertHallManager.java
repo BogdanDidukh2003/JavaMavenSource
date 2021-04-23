@@ -1,16 +1,12 @@
 package ua.lviv.iot.performances.managers;
 
-
 import lombok.AccessLevel;
 import lombok.Data;
 import lombok.experimental.FieldDefaults;
 import ua.lviv.iot.performances.models.Performance;
 import ua.lviv.iot.performances.models.SortOrder;
-
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.LinkedList;
+
 
 @Data
 @FieldDefaults(makeFinal = false, level = AccessLevel.PRIVATE)
