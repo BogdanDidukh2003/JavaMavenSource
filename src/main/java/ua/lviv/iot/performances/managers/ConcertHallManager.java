@@ -2,6 +2,7 @@ package ua.lviv.iot.performances.managers;
 
 import lombok.AccessLevel;
 import lombok.Data;
+import lombok.NonNull;
 import lombok.experimental.FieldDefaults;
 import ua.lviv.iot.performances.models.Performance;
 import ua.lviv.iot.performances.models.SortOrder;
@@ -14,7 +15,7 @@ public final class ConcertHallManager {
 
     ArrayList<Performance> performances;
 
-    public ConcertHallManager(final ArrayList<Performance> performances) {
+    public ConcertHallManager(@NonNull final ArrayList<Performance> performances) {
         this.performances = performances;
     }
 

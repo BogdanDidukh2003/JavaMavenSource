@@ -2,6 +2,7 @@ package ua.lviv.iot.performances.models;
 
 import lombok.AccessLevel;
 import lombok.Data;
+import lombok.NonNull;
 import lombok.ToString;
 import lombok.experimental.FieldDefaults;
 
@@ -15,8 +16,8 @@ public final class Disco extends Performance {
 
     String musicGenre;
 
-    public Disco(final String name, final int musiciansNumber, final int avgTicketPrice,
-                 final Color discoBallColor, final String musicGenre) {
+    public Disco(@NonNull final String name, @NonNull final int musiciansNumber, @NonNull final int avgTicketPrice,
+                 @NonNull final Color discoBallColor, @NonNull final String musicGenre) {
         super(name, musiciansNumber, avgTicketPrice);
         this.discoBallColor = discoBallColor;
         this.musicGenre = musicGenre;
