@@ -1,17 +1,18 @@
-package ua.lviv.iot.models;
+package ua.lviv.iot.performances.models;
+
 
 
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.NonNull;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import lombok.experimental.FieldDefaults;
+import lombok.experimental.SuperBuilder;
 
-@Getter
-@Setter
-@NonNull
+@Data
+@NoArgsConstructor
 @AllArgsConstructor
+@SuperBuilder
 @FieldDefaults(makeFinal = false, level = AccessLevel.PROTECTED)
 public abstract class Performance {
 
