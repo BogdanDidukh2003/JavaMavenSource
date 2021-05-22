@@ -5,7 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
-@ComponentScan("ua.lviv.iot.performances.controller")
+@ComponentScan("ua.lviv.iot.performances.controllers")
 public class PerformancesApplication {
 
 	public static void main(String[] args) {

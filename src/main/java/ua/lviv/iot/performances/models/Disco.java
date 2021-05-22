@@ -16,9 +16,9 @@ public final class Disco extends Performance {
 
     @NonNull String musicGenre;
 
-    public Disco(final String name, final int musiciansNumber, final int avgTicketPrice,
+    public Disco(final int id, final String name, final int musiciansNumber, final int avgTicketPrice,
                  final Color discoBallColor, final String musicGenre) {
-        super(name, musiciansNumber, avgTicketPrice);
+        super(id, name, musiciansNumber, avgTicketPrice);
         this.discoBallColor = discoBallColor;
         this.musicGenre = musicGenre;
     }

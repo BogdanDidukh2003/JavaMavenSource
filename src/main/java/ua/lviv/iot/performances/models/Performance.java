@@ -10,12 +10,18 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor
 @SuperBuilder
 @FieldDefaults(makeFinal = false, level = AccessLevel.PROTECTED)
-public abstract class Performance {
+public class Performance {
+
+    @NonNull int id;
 
     @NonNull String name;
 
     @NonNull int musiciansNumber;
 
     @NonNull int  avgTicketPrice;
+
+    public Performance copy(){
+        return new Performance(this.id, this.name, this.musiciansNumber, this.avgTicketPrice);
+    }
 
 }

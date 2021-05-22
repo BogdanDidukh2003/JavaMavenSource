@@ -6,6 +6,7 @@ import lombok.NonNull;
 import lombok.ToString;
 import lombok.experimental.FieldDefaults;
 import java.util.ArrayList;
+import java.util.List;
 
 
 @Data
@@ -13,14 +14,19 @@ import java.util.ArrayList;
 @FieldDefaults(makeFinal = false, level = AccessLevel.PRIVATE)
 public final class CircusShow extends Performance {
 
-    @NonNull ArrayList<String> animals;
+    @NonNull List<String> animals;
 
-    @NonNull ArrayList<String> acrobatsNames;
+    @NonNull List<String> acrobatsNames;
 
-    public CircusShow(final String name, final int musiciansNumber, final int avgTicketPrice,
+    public CircusShow(final int id, final String name, final int musiciansNumber, final int avgTicketPrice,
                       final ArrayList<String> animals, final ArrayList<String> acrobatsNames) {
-        super(name, musiciansNumber, avgTicketPrice);
+        super(id, name, musiciansNumber, avgTicketPrice);
         this.animals = animals;
+        this.setAcrobatsNames(acrobatsNames);
+    }
+
+    public void setAcrobatsNames(List<String> acrobatsNames) {
+        acrobatsNames.add("Micheal");
         this.acrobatsNames = acrobatsNames;
     }
 }
