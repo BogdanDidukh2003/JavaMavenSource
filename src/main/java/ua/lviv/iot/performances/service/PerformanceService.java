@@ -1,53 +1,50 @@
 package ua.lviv.iot.performances.service;
 
+import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.context.annotation.ApplicationScope;
+import ua.lviv.iot.performances.repositories.PerformanceRepository;
+import ua.lviv.iot.performances.exception.PerformanceNotFoundException;
 import ua.lviv.iot.performances.models.Performance;
-import ua.lviv.iot.performances.repository.PerformanceRepository;
-
 import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.StreamSupport;
 
 @Service
+@Data
+@ApplicationScope
 public class PerformanceService {
 
-    @Autowired
-    private final PerformanceRepository repository;
+    private PerformanceRepository repository;
 
-    public PerformanceService(PerformanceRepository repository) {
-        this.repository = repository;
+    @Autowired
+    public PerformanceService(PerformanceRepository performanceRepository) {
+        this.repository = performanceRepository;
+    }
+    public void addPerformance(Performance performance){
+        repository.save(performance);
     }
 
-    public Performance addPerformance(Performance performance){
-        repository.save(performance);
-        return performance;
+    public Performance updatePerformance(Integer id, Performance performance) throws PerformanceNotFoundException {
+        if (repository.existsById(performance.getId())) {
+            performance.setId(id);
+            return repository.save(performance);
+        }
+        throw new PerformanceNotFoundException("Performance with id: " + performance.getId() + "not found");
     }
 
     public List<Performance> getPerformances(){
-        return StreamSupport.stream(repository.findAll().spliterator(),false).collect(Collectors.toList());
+        return repository.findAll();
     }
 
-    public Performance getPerformance(int id){
-        return repository.findById(id).orElse(null);
+    public Performance getPerformance(Integer id) {
+        return repository.findById(id).orElseThrow();
     }
 
-    public Performance updatePerformance(Performance newPerformance, int performanceId){
-        Performance performance = repository.findById(performanceId).orElse(null);
-        if(performance != null) {
-            performance = performance.copy();
-            newPerformance.setId(performanceId);
-            repository.save(newPerformance);
+    public boolean deletePerformance(Integer id){
+        if(repository.findById(id).isPresent()) {
+            repository.deleteById(id);
+            return true;
         }
-        return performance;
-    }
-
-    public int deletePerformance(int performanceId){
-        Performance penguin = repository.findById(performanceId).orElse(null);
-        if(penguin!=null) {
-            repository.deleteById(performanceId);
-            return performanceId;
-        }
-        return -1;
+        return false;
     }
 }

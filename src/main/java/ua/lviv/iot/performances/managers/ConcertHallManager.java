@@ -2,18 +2,18 @@ package ua.lviv.iot.performances.managers;
 
 import lombok.AccessLevel;
 import lombok.Data;
-import lombok.NonNull;
 import lombok.experimental.FieldDefaults;
 import ua.lviv.iot.performances.models.Performance;
 import ua.lviv.iot.performances.models.SortOrder;
+
 import java.util.ArrayList;
 
 
 @Data
-@FieldDefaults(makeFinal = false, level = AccessLevel.PRIVATE)
+@FieldDefaults(makeFinal = false, level = AccessLevel.PROTECTED)
 public final class ConcertHallManager {
 
-    @NonNull ArrayList<Performance> performances;
+    ArrayList<Performance> performances;
 
     public ConcertHallManager(final ArrayList<Performance> performances) {
         this.performances = performances;

@@ -1,10 +1,19 @@
 package ua.lviv.iot.performances.models;
 
-import lombok.*;
+import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import lombok.experimental.FieldDefaults;
 import lombok.experimental.SuperBuilder;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
+
+@Entity
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -12,13 +21,15 @@ import lombok.experimental.SuperBuilder;
 @FieldDefaults(makeFinal = false, level = AccessLevel.PROTECTED)
 public class Performance {
 
-    @NonNull int id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    Integer id;
 
-    @NonNull String name;
+    String name;
 
-    @NonNull int musiciansNumber;
+    int musiciansNumber;
 
-    @NonNull int  avgTicketPrice;
+    int  avgTicketPrice;
 
     public Performance copy(){
         return new Performance(this.id, this.name, this.musiciansNumber, this.avgTicketPrice);
