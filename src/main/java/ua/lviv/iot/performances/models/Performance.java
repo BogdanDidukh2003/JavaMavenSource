@@ -1,21 +1,38 @@
 package ua.lviv.iot.performances.models;
 
-import lombok.*;
+import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import lombok.experimental.FieldDefaults;
 import lombok.experimental.SuperBuilder;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
+
+@Entity
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @SuperBuilder
 @FieldDefaults(makeFinal = false, level = AccessLevel.PROTECTED)
-public abstract class Performance {
+public class Performance {
 
-    @NonNull String name;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    Integer id;
 
-    @NonNull int musiciansNumber;
+    String name;
 
-    @NonNull int  avgTicketPrice;
+    int musiciansNumber;
+
+    int  avgTicketPrice;
+
+    public Performance copy(){
+        return new Performance(this.id, this.name, this.musiciansNumber, this.avgTicketPrice);
+    }
 
 }
